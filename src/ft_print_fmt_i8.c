@@ -12,10 +12,10 @@
 
 #include "../lib/ft_printf.h"
 
-int ft_print_fmt_i8(va_list *arg)
+t_i32	ft_print_fmt_i8(va_list *arg)
 {
-	int i8;
+	t_i8	i8;
 
-	i8 = (int) va_arg(*arg, int);
+	i8 = (t_i32)va_arg(*arg, t_i32);
 	return (write(1, &i8, 1));
 }

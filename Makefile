@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror -O2 -g3
+CFLAGS  = -Wall -Wextra -Werror
 
 SRC_DIR = src
 SRC     = $(SRC_DIR)/ft_printf.c \
@@ -48,6 +48,8 @@ $(OBJS): | $(OBJ_DIR)
 
 $(OBJ_DIR):
 		mkdir -p $(OBJ_DIR)
+
+bonus : all
 
 clean:
 		rm -rf $(OBJ_DIR)

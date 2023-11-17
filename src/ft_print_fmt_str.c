@@ -12,9 +12,9 @@
 
 #include "../lib/ft_printf.h"
 
-static int ft_strlen(char *str)
+static t_i32	ft_strlen(t_i8 *str)
 {
-	char *pstr;
+	t_i8	*pstr;
 
 	pstr = str;
 	while (*pstr)
@@ -22,11 +22,11 @@ static int ft_strlen(char *str)
 	return (pstr - str);
 }
 
-int ft_print_fmt_str(va_list *arg)
+t_i32	ft_print_fmt_str(va_list *arg)
 {
-	char *str;
+	t_i8	*str;
 
-	str = va_arg(*arg, char *);
+	str = va_arg(*arg, t_i8 *);
 	if (str == NULL)
 		return (write(1, "(null)", 6));
 	else

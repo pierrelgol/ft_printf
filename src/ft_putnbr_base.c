@@ -12,11 +12,11 @@
 
 #include "../lib/ft_printf.h"
 
-int ft_uputnbr_base(uint64_t num, char *base, int radix)
+t_i32	ft_uputnbr_base(t_u64 num, t_i8 *base, t_i32 radix)
 {
-	int  i;
-	int  len;
-	char result[64];
+	t_i32	i;
+	t_i32	len;
+	t_i8	result[64];
 
 	len = 0;
 	if (num < 0)
@@ -41,11 +41,11 @@ int ft_uputnbr_base(uint64_t num, char *base, int radix)
 	return (len);
 }
 
-int ft_iputnbr_base(int64_t num, char *base, int radix)
+t_i32	ft_iputnbr_base(t_i64 num, t_i8 *base, t_i32 radix)
 {
-	int  i;
-	int  len;
-	char result[64];
+	t_i32	i;
+	t_i32	len;
+	t_i8	result[64];
 
 	len = 0;
 	if (num < 0)

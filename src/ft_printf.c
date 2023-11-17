@@ -13,32 +13,25 @@
 #include <stdint.h>
 #include <stdio.h>
 
-int ft_printf(const char *fmt, ...)
+int	ft_printf(const char *fmt, ...)
 {
-	int     count;
-	va_list args;
-	t_fsm   fsm;
+	int		count;
+	va_list	args;
+	t_fsm	fsm;
 
 	count = 0;
 	va_start(args, fmt);
-	fsm = fsm_init(fmt);
+	fsm = fsm_init((t_i8 *)fmt);
 	while (*fsm.fmt)
 	{
 		fsm.curr = fsm.get_curr_state(fsm.curr, *fsm.fmt);
 		fsm.use_print_fmt = fsm.get_print_fmt(fsm.curr);
 		if (fsm.curr == FSM_PRINT_CHAR)
-			count += fsm.use_print_fmt((va_list *) fsm.fmt);
+			count += fsm.use_print_fmt((va_list *)fsm.fmt);
 		else
 			count += (fsm.use_print_fmt(&args));
 		fsm.fmt++;
 	}
 	va_end(args);
 	return (count);
-}
-
-int main(void)
-{
-	ft_printf("%p\n",UINT64_MAX);
-	ft_printf("%p\n",UINT64_MAX);
-	ft_printf("%p\n",NULL);
 }
